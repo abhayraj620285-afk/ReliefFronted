@@ -7,7 +7,7 @@ import LoginPage            from './pages/auth/LoginPage';
 import RegisterPage         from './pages/auth/RegisterPage';
 import { VolunteerDashboard, AdminDashboard } from './pages/Dashboards';
 import CoordinatorDashboard from './pages/coordinator/CoordinatorDashboard';
-import ReporterHome         from './pages/reporter/reporterHome';
+import ReporterHome         from './pages/reporter/ReporterHome';
 import ReporterDashboard    from './pages/reporter/ReporterDashboard';
 
 function ProtectedRoute({ children, allowedRoles }) {
