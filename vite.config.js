@@ -4,6 +4,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    proxy: { '/api': { target: 'http://localhost:8080', changeOrigin: true } }
+    proxy: { '/api': { target: 'https://relifbackend.onrender.com', changeOrigin: true } }
   }
 })
