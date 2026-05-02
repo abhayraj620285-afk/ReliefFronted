@@ -454,41 +454,31 @@ export default function VolunteerDashboard() {
     return () => clearTimeout(t);
   }, [loading, activeTab]);
 
-  // Find volunteer profile matching the logged-in user's email
-//   const findMyVolunteerProfile = useCallback(async () => {
-//     try {
-//       const res = await volunteersAPI.getAll(false);
-//       const all = res.data || [];
-//       // Match by email (set during auto-creation in AuthService)
-//       const mine = all.find(v => v.email === user?.email);
-//       return mine || null;
-//     } catch {
-//       return null;
-//     }
-//   }, [user?.email]);
-
-// const findMyVolunteerProfile = useCallback(async () => {
-//   try {
-//     const res = await volunteersAPI.getMe();
-//     return res.data;
-//   } catch {
-//     return null;
-//   }
-// }, []);
-const findMyVolunteerProfile = useCallback(async () => {
+  const findMyVolunteerProfile = useCallback(async () => {
   try {
-    const res = await volunteersAPI.getAll(false);
-    const all = res.data || [];
-
-    // ✅ Match logged-in user with volunteer
-    const mine = all.find(v => v.email === user?.email);
-
-    return mine || null;
+    const res = await volunteersAPI.getMe();
+    return res.data || null;
   } catch (err) {
-    console.error("Error fetching volunteer:", err);
+    console.error("Volunteer profile not found:", err);
     return null;
   }
-}, [user?.email]);
+}, []);
+
+  
+// const findMyVolunteerProfile = useCallback(async () => {
+//   try {
+//     const res = await volunteersAPI.getAll(false);
+//     const all = res.data || [];
+
+//     // ✅ Match logged-in user with volunteer
+//     const mine = all.find(v => v.email === user?.email);
+
+//     return mine || null;
+//   } catch (err) {
+//     console.error("Error fetching volunteer:", err);
+//     return null;
+//   }
+// }, [user?.email]);
 
   const loadAll = useCallback(async () => {
     setLoading(true);
