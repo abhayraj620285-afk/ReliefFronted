@@ -62,6 +62,7 @@ export const volunteersAPI = {
   getAll:             (availableOnly = false) => api.get('/volunteers', {
     params: availableOnly ? { availableOnly: true } : {}
   }),
+  getMe: () => api.get('/volunteers/me'),
   getById:            id             => api.get(`/volunteers/${id}`),
   update:             (id, d)        => api.put(`/volunteers/${id}`, d),
   updateAvailability: (id, v)        => api.patch(`/volunteers/${id}/availability`, { available: v }),
